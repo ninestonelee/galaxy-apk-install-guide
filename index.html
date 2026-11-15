@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>갤럭시 폰 APK 다운로드·설치 매뉴얼</title>
+<meta name="description" content="삼성 갤럭시(One UI 6~8.5)에서 APK 파일을 내려받아 설치하는 방법을 단계별 화면과 함께 안내합니다.">
+<meta property="og:title" content="갤럭시 폰 APK 다운로드·설치 매뉴얼">
+<meta property="og:description" content="보안 위험 자동 차단 끄기부터 설치, 원상복구까지 7단계">
+<style>
+:root{--blue:#3e6ce8;--red:#e53935;--bg:#f5f6f8;--ink:#1d1d1f;--sub:#555}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:16px}
+header{background:#14213d;color:#fff;padding:36px 20px 28px}
+header h1{margin:0 0 8px;font-size:26px;line-height:1.35}
+header p{margin:0;opacity:.85;font-size:14px}
+main{max-width:760px;margin:0 auto;padding:0 16px 60px}
+nav.toc{background:#fff;border-radius:16px;padding:16px 20px;margin:20px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+nav.toc ol{margin:6px 0 0;padding-left:22px}
+nav.toc a{color:var(--blue);text-decoration:none}
+section{background:#fff;border-radius:16px;padding:22px 20px;margin:18px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+h2{font-size:20px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+h2 .n{background:var(--blue);color:#fff;border-radius:50%;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+h3{font-size:17px;margin:20px 0 8px}
+figure{margin:16px 0;text-align:center}
+figure img{width:100%;max-width:300px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+figcaption{font-size:13px;color:var(--sub);margin-top:6px}
+.pair{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.pair figure{flex:1 1 240px}
+.warn{background:#fff4e5;border-left:5px solid #ff9800;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:15px}
+.tip{background:#eaf1ff;border-left:5px solid var(--blue);padding:12px 14px;border-radius:8px;margin:14px 0;font-size:15px}
+.stop{background:#fdecea;border-left:5px solid var(--red);padding:12px 14px;border-radius:8px;margin:14px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0}
+th,td{border:1px solid #e3e3e8;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f0f2f6}
+b.k{background:#eef1f5;border-radius:6px;padding:1px 6px;font-weight:700}
+ul.check{list-style:none;padding-left:0}
+ul.check li::before{content:"☐ ";color:var(--blue);font-weight:700}
+footer{font-size:13px;color:var(--sub);text-align:center;padding:20px}
+a{color:var(--blue)}
+.badge{display:inline-block;background:#ff7a00;color:#fff;font-size:11px;font-weight:700;padding:1px 7px;border-radius:9px;vertical-align:middle}
+</style>
+</head>
+<body>
+<header>
+<h1>갤럭시 폰 APK<br>다운로드·설치 매뉴얼</h1>
+<p>삼성 갤럭시 One UI 6~8.5 (Android 14~16) 기준 · 2026년 11월 작성<br>메뉴 이름과 화면은 모델·소프트웨어 버전에 따라 조금 다를 수 있습니다.</p>
+</header>
+<main>
+
+<div class="stop"><b>시작 전 확인</b><br>설치 파일을 준 곳이 확실한가요? 문자·카톡 링크로 온 모르는 APK, “앱 하나만 깔아 주세요”라는 전화 안내는 <b>보이스피싱 수법</b>입니다. 출처가 확실하지 않으면 여기서 멈추세요.</div>
+
+<nav class="toc"><b>한눈에 보는 순서</b>
+<ol start="0">
+<li><a href="#s0">보안 위험 자동 차단 잠시 끄기</a></li>
+<li><a href="#s1">APK 다운로드</a></li>
+<li><a href="#s2">다운로드한 파일 열기</a></li>
+<li><a href="#s3">‘이 출처 허용’ 켜기</a></li>
+<li><a href="#s4">설치</a></li>
+<li><a href="#s5">Play 프로텍트 경고 대응</a></li>
+<li><a href="#s6">설치 완료</a></li>
+<li><a href="#s7">원상복구 (꼭 하세요)</a></li>
+</ol>
+<a href="#faq">문제 해결</a> · <a href="#check">보안 체크리스트</a></nav>
+
+<section id="s0">
+<h2><span class="n">0</span>보안 위험 자동 차단 잠시 끄기</h2>
+<p>One UI 6.1.1 이상으로 출시된 갤럭시는 <b>보안 위험 자동 차단</b>이 기본으로 켜져 있습니다. 켜져 있으면 Play 스토어·Galaxy Store 밖에서 받은 앱이 설치되지 않습니다. 3단계의 ‘출처 허용’ 스위치도 회색으로 잠깁니다.</p>
+<ol>
+<li><b class="k">설정</b> 앱을 엽니다.</li>
+<li><b class="k">보안 및 개인정보 보호</b>를 누릅니다.</li>
+<li><b class="k">보안 위험 자동 차단</b> 스위치를 끕니다. 화면 잠금 PIN·지문 확인을 요구합니다.</li>
+</ol>
+<div class="pair">
+<figure><img src="img/01_auto_blocker_path.webp" alt="보안 및 개인정보 보호 화면의 보안 위험 자동 차단 스위치" loading="lazy"><figcaption>그림 1. 이 스위치를 눌러 끕니다.</figcaption></figure>
+<figure><img src="img/02_auto_on.webp" alt="보안 위험 자동 차단 사용 안 함, 자동으로 켜기" loading="lazy"><figcaption>그림 2. One UI 8.5는 ‘자동으로 켜기’를 켜 두면 30분 뒤 다시 켜집니다.</figcaption></figure>
+</div>
+</section>
+
+<section id="s1">
+<h2><span class="n">1</span>APK 다운로드</h2>
+<ol>
+<li>배포처가 알려준 주소를 <b class="k">Chrome</b> 또는 <b class="k">삼성 인터넷</b>으로 엽니다.</li>
+<li><b class="k">APK 다운로드</b> 버튼을 누릅니다.</li>
+<li>“이 유형의 파일은 기기에 손상을 줄 수 있습니다” 경고가 뜨면 <b class="k">다운로드</b>를 누릅니다.</li>
+</ol>
+<figure><img src="img/03_download_warning.webp" alt="크롬 다운로드 경고" loading="lazy"><figcaption>그림 3. 경고 문구는 브라우저 종류·버전에 따라 다릅니다.</figcaption></figure>
+</section>
+
+<section id="s2">
+<h2><span class="n">2</span>다운로드한 파일 열기</h2>
+<p><b>방법 A. 바로 열기:</b> 다운로드가 끝나면 화면 아래 안내에서 <b class="k">열기</b>를 누릅니다.<br>
+<b>방법 B. 내 파일에서 열기:</b> 안내를 놓쳤다면 <b class="k">내 파일</b> 앱 → <b class="k">다운로드</b>에서 <code>.apk</code> 파일을 누릅니다.</p>
+<div class="pair">
+<figure><img src="img/04_download_done.webp" alt="다운로드 완료 열기" loading="lazy"><figcaption>그림 4. 방법 A</figcaption></figure>
+<figure><img src="img/05_myfiles.webp" alt="내 파일 다운로드 폴더" loading="lazy"><figcaption>그림 5. 방법 B</figcaption></figure>
+</div>
+<div class="tip">어느 앱으로 파일을 열었는지 기억하세요. 3단계에서 <b>그 앱</b>에 허용을 줍니다. 방법 A는 Chrome(또는 삼성 인터넷), 방법 B는 내 파일입니다.</div>
+</section>
+
+<section id="s3">
+<h2><span class="n">3</span>‘이 출처 허용’ 켜기</h2>
+<p>처음 설치하면 “보안상의 이유로 현재 이 출처의 알 수 없는 앱을 휴대전화에 설치할 수 없습니다” 안내가 뜹니다.</p>
+<ol>
+<li><b class="k">설정</b>을 누릅니다.</li>
+<li><b class="k">이 출처 허용</b> 스위치를 켭니다. 버전에 따라 이름이 <b class="k">권한 허용</b>일 수 있습니다.</li>
+<li>뒤로 가기(‹)를 누르면 설치 화면으로 돌아갑니다.</li>
+</ol>
+<div class="pair">
+<figure><img src="img/06_source_blocked.webp" alt="출처 차단 안내" loading="lazy"><figcaption>그림 6. 맨 위에 파일을 연 앱 이름이 표시됩니다.</figcaption></figure>
+<figure><img src="img/07_allow_source.webp" alt="이 출처 허용 켜기" loading="lazy"><figcaption>그림 7. 스위치를 켭니다.</figcaption></figure>
+</div>
+<div class="tip"><b>직접 찾아가는 경로:</b> 설정 → 애플리케이션 → 오른쪽 위 ⋮ → 특별한 접근 → 출처를 알 수 없는 앱 설치 → (Chrome 또는 내 파일)<br>일부 버전: 설정 → 보안 및 개인정보 보호 → 기타 보안 설정 → 출처를 알 수 없는 앱 설치. 설정 검색창에 “출처”를 입력해도 찾을 수 있습니다.</div>
+</section>
+
+<section id="s4">
+<h2><span class="n">4</span>설치</h2>
+<p>“이 앱을 설치하시겠습니까?”가 뜨면 <b class="k">설치</b>를 누릅니다.</p>
+<figure><img src="img/08_install.webp" alt="설치 확인" loading="lazy"><figcaption>그림 8.</figcaption></figure>
+</section>
+
+<section id="s5">
+<h2><span class="n">5</span>Play 프로텍트 경고가 뜰 때</h2>
+<table>
+<tr><th>경고</th><th>어떻게 할까</th></tr>
+<tr><td><b>앱 검사</b> 권유</td><td><b>앱 검사</b>를 누르세요. 안전 확인이 한 번 더 됩니다.</td></tr>
+<tr><td><b>앱 설치가 권장되지 않음</b> / <b>안전하지 않은 앱 차단됨</b> (확인되지 않은 개발자)</td><td>배포처가 확실할 때만 <b>세부정보 더보기 → 무시하고 설치</b>. 그냥 ‘확인’을 누르면 설치되지 않습니다.</td></tr>
+<tr><td><b>유해한 앱 차단됨</b> (멀웨어 감지)</td><td><b>설치하지 말고 파일을 삭제</b>하세요.</td></tr>
+</table>
+<figure><img src="img/09_play_protect.webp" alt="Play 프로텍트 무시하고 설치" loading="lazy"><figcaption>그림 9. 실제 문구는 앱과 Play 프로텍트 버전에 따라 다릅니다.</figcaption></figure>
+</section>
+
+<section id="s6">
+<h2><span class="n">6</span>설치 완료</h2>
+<p>“앱이 설치되었습니다”가 뜨면 <b class="k">열기</b>를 누릅니다. 처음 실행할 때 권한을 물으면 <b>필요한 것만</b> 허용하세요.</p>
+<figure><img src="img/10_installed.webp" alt="앱이 설치되었습니다" loading="lazy"><figcaption>그림 10.</figcaption></figure>
+</section>
+
+<section id="s7">
+<h2><span class="n">7</span>원상복구 (꼭 하세요)</h2>
+<ol>
+<li><b>이 출처 허용 끄기:</b> 설정 → 애플리케이션 → ⋮ → 특별한 접근 → 출처를 알 수 없는 앱 설치에서 3단계에 켰던 앱의 스위치를 끕니다.</li>
+<li><b>보안 위험 자동 차단 다시 켜기:</b> 설정 → 보안 및 개인정보 보호 → 보안 위험 자동 차단을 켭니다.</li>
+</ol>
+<figure><img src="img/11_revoke.webp" alt="출처 허용 다시 끄기" loading="lazy"><figcaption>그림 11. 모든 스위치가 꺼진 상태</figcaption></figure>
+<div class="tip">설치한 앱은 자동 차단을 다시 켜도 그대로 쓸 수 있습니다. 다만 APK로 받은 앱의 <b>업데이트</b>도 자동 차단이 켜져 있으면 설치되지 않습니다. 새 버전을 설치할 때마다 0~7단계를 반복하세요.</div>
+</section>
+
+<section id="faq">
+<h2>문제 해결</h2>
+<h3>“출처를 알 수 없는 앱 차단됨” 팝업이 떠요</h3>
+<figure><img src="img/12_blocked_popup.webp" alt="출처를 알 수 없는 앱 차단됨 팝업" loading="lazy"><figcaption>그림 12.</figcaption></figure>
+<p>보안 위험 자동 차단이 켜져 있다는 뜻입니다. <b>확인</b>을 누르고 <a href="#s0">0단계</a>로 돌아가 자동 차단을 끈 뒤 APK를 다시 엽니다.</p>
+<h3>‘이 출처 허용’ 스위치가 회색이라 눌리지 않아요</h3>
+<p>역시 보안 위험 자동 차단 때문입니다. 0단계를 먼저 하세요.</p>
+<h3>“앱이 설치되지 않았습니다”가 떠요</h3>
+<ul>
+<li>같은 앱의 다른 서명 버전이 이미 깔려 있으면 기존 앱을 삭제하고 다시 설치합니다. 앱 데이터도 지워지니 주의하세요.</li>
+<li>파일이 다 받아지지 않았을 수 있습니다. 다시 받아 보세요.</li>
+<li>너무 오래된 Android용으로 만든 앱은 최신 갤럭시에서 설치가 막힙니다. 배포처에 최신 빌드를 요청하세요.</li>
+<li>저장공간이 부족한지 확인하세요.</li>
+</ul>
+<h3>APK를 눌러도 아무 반응이 없어요 (One UI 8.5 일부 사례)</h3>
+<ul>
+<li>휴대폰을 재부팅한 뒤 <b>내 파일</b> 앱에서 다시 엽니다.</li>
+<li>그래도 안 되면 <b>삼성 멤버스 → 도움받기 → 질문/오류 보내기 → 오류 보내기</b>에서 ‘시스템 로그 데이터 보내기’를 체크하고 증상을 보내세요.</li>
+</ul>
+<h3>접근성 권한이 “제한된 설정”이라 켜지지 않아요</h3>
+<p>Android 13부터 APK로 설치한 앱은 접근성·알림 접근 권한이 기본으로 막힙니다.</p>
+<div class="stop"><b>누군가 전화나 메시지로 이 권한을 켜라고 안내하고 있다면 즉시 중단하세요.</b> 보이스피싱 악성 앱이 가장 노리는 권한입니다.</div>
+<p>업무상 꼭 필요하고 출처가 확실할 때만: 설정 → 애플리케이션 → 해당 앱 → ⋮ → <b>제한된 설정 허용</b>.</p>
+</section>
+
+<section id="check">
+<h2>보안 체크리스트</h2>
+<ul class="check">
+<li>배포처(회사·강사·개발자)를 직접 확인했다.</li>
+<li>같은 앱이 Play 스토어·Galaxy Store에 있다면 스토어에서 설치했다.</li>
+<li>앱이 요구하는 권한이 기능과 맞다. 예를 들어 계산기 앱이 문자·연락처를 요구하면 의심합니다.</li>
+<li>Play 프로텍트가 ‘유해한 앱’이라고 하면 설치하지 않았다.</li>
+<li>설치 후 ‘이 출처 허용’을 끄고 ‘보안 위험 자동 차단’을 다시 켰다.</li>
+</ul>
+<div class="warn"><b>참고:</b> Google은 Android 개발자 인증 제도를 도입했습니다. 2026년 9월 30일부터 일부 지역에서 시작했고, 2027년에 전 세계로 확대할 예정입니다. 적용되면 인증되지 않은 개발자의 APK는 별도 절차를 거쳐야 설치할 수 있습니다.</div>
+</section>
+
+<section>
+<h2>화면 이미지와 참고 자료</h2>
+<p style="font-size:14px">이 페이지의 화면 그림은 모두 <span class="badge">재현 화면</span>입니다. 공식 안내와 실사용 사례의 화면 문구를 바탕으로 One UI 스타일로 다시 그렸으며, 실제 기기 캡처가 아닙니다.</p>
+<ul style="font-size:14px">
+<li><a href="https://r1.community.samsung.com/t5/%EC%86%90%EC%89%AC%EC%9A%B4-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95/%EB%B3%B4%EC%95%88-%EC%9C%84%ED%97%98-%EC%9E%90%EB%8F%99-%EC%B0%A8%EB%8B%A8-%EA%B8%B0%EB%8A%A5%EC%9C%BC%EB%A1%9C-%EA%B0%A4%EB%9F%AD%EC%8B%9C-%EA%B8%B0%EA%B8%B0%EC%9D%98-%EB%B3%B4%EC%95%88-%EA%B0%95%ED%99%94-%EB%B0%A9%EB%B2%95/ba-p/28156187">삼성 멤버스: 보안 위험 자동 차단 기능으로 갤럭시 기기의 보안 강화 방법</a> (공식 화면)</li>
+<li><a href="https://www.samsungsvc.co.kr/solution/1711930">삼성전자서비스: 보안 위험 자동 차단</a> · <a href="https://www.samsungsvc.co.kr/solution/23445">출처를 알 수 없는 앱 메뉴</a></li>
+<li><a href="https://developer.android.com/developer-verification">Android 개발자 인증 (Google)</a></li>
+</ul>
+</section>
+</main>
+<footer>© 2026 주식회사 챗사피엔스 · <a href="https://chatsapiens.com/ax">chatsapiens.com/ax</a></footer>
+</body>
+</html>
